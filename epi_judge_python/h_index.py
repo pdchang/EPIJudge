@@ -2,9 +2,13 @@ from typing import List
 
 from test_framework import generic_test
 
-
-def h_index(citations: List[int]) -> int:
-    # TODO - you fill in here.
+# O(n log n) cause sort
+def h_index(citations: List[int]) -> int:   
+    n = len(citations)
+    citations.sort()
+    for i, j in enumerate(citations):
+        if j >= n - i:
+            return n - i
     return 0
 
 
